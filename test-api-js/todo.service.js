@@ -1,17 +1,17 @@
 class todoservice{
     todo_data = {
         "todo":[{
+            "id": 1,
             "title": "T1",
-            "description": "D1",
-            "done": false
+            "completed": false
         },{
-            "title": "T1",
-            "description": "D1",
-            "done": false
+            "id": 2,
+            "title": "T2",
+            "completed": false
         },{
-            "title": "T1",
-            "description": "D1",
-            "done": false
+            "id": 3,
+            "title": "T3",
+            "completed": true
         }]
     }
     constructor(){
@@ -23,15 +23,19 @@ class todoservice{
     }
 
     add_todo(todo){
-        // Your code here
+        this.todos.todo.push(todo);
     }
 
     delete_todo(id){
-        // Your code here
+        let index = this.todos.todo.findIndex((todo) => todo.id === id);
+        if(index>-1) {
+            this.todos.todo.splice(index,1);
+        }
     }
 
     update_todo(id, todo){
-        // Your code here
+       let index = this.todos.todo.findIndex(todo => todo.id===id)
+       this.todos.todo[index] = todo;
     }
 }
 
